@@ -10,24 +10,11 @@ openshift_cluster_content:
     file: "{{ inventory_dir }}/../namespaces/labs-test.yml"
   - name: labs-uat
     file: "{{ inventory_dir }}/../namespaces/labs-uat.yml"
-- object: deployments1
-  content:
-  - name: nexus
-    template: "{{ inventory_dir }}/../../templates/nexus/template.json"
-    params: "{{ inventory_dir }}/../params/nexus/deploy_params"
-    namespace: labs-ci-cd
 - object: builds
   content:
-  - name: owasp-zap-openshift
-    template: "{{ inventory_dir }}/../../templates/zap-build-pod/template.json"
-    namespace: labs-ci-cd
   - name: jenkins-s2i
     template: "{{ inventory_dir }}/../../templates/jenkins-s2i/template.json"
     params: "{{ inventory_dir }}/../params/jenkins-s2i/build_params"
-    namespace: labs-ci-cd
-  - name: sonarqube
-    template: "{{ inventory_dir }}/../../templates/sonarqube/template.json"
-    params: "{{ inventory_dir }}/../params/sonarqube/build_params"
     namespace: labs-ci-cd
   - name: mvn-build-pod
     template: "{{ inventory_dir }}/../../templates/build-pod/template.json"
@@ -46,6 +33,8 @@ openshift_cluster_content:
   - name: java-app-build
     template: "{{ inventory_dir }}/../../templates/java-app-build/template.json"
     params: "{{ inventory_dir }}/../params/java-app/deploy_params"
+    jenkinsfile: "{{ inventory_dir }}/../../templates/jenkinsfile/jenkinsfile.j2"
+    jenkinsfile_params: "{{ inventory_dir }}/../params/jenkinsfile/params"
     namespace: labs-ci-cd
 - object: app-deployments
   content:

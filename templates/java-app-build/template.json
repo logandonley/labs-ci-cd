@@ -37,7 +37,7 @@
                 },
                 "strategy": {
                     "jenkinsPipelineStrategy": {
-                        "jenkinsfilePath": "Jenkinsfile"
+                        "jenkinsfile": "{{ jenkinsfile }}"
                     },
                     "type": "JenkinsPipeline"
                 },

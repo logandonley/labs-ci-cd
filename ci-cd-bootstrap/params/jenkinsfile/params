@@ -1,0 +1,6 @@
+APP_NAME: java-app
+BUILD_SLAVE_IMAGE: maven
+GIT_SOURCE_REPO: https://github.com/rht-labs/automation-api.git
+JENKINS_CREDENTIAL: jenkinsmaster
+PIPELINE_PROJECT: pipeline
+PROJECTS: ['dev', 'test', 'uat']
